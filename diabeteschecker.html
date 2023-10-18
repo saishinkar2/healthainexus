@@ -73,18 +73,51 @@
         tr:nth-child(even) {
         background-color: #FFFF00;
         }
-    </style>
+
+        .moving-text {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ff0000; /* Background color for visibility */
+    color: #fff; /* Text color */
+    text-align: center;
+    padding: 10px;
+    font-size: 16px;
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide overflowing content */
+    animation: scrollText 0.5s linear; /* Adjust duration as needed */
+  }
+
+  @keyframes scrollText {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+
+}
+</style>
+
 </head>
 <body>
-    <header>
+    <div class="moving-text">
+        Disclaimer: The Results are not accurate. Please contact your physician.
+      </div>
+      
+    <header class="container">
         <h1>Diabetes Risk Checker</h1>
-        <div class="containerheader">
-            <nav>
-                <ul class="nav nav-pills">
-                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="tips.html" class="nav-link">Tips</a></li>
-                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-                </ul>
+        <div class="container-fluid header d-flex  justify-content-center">
+            <nav class="navbar navbar-expand-lg">
+                    <div class="container-fluid">
+                        <ul class="navbar-nav nav-pills">
+                            <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                            <li class="nav-item"><a href="tips.html" class="nav-link ">Tips</a></li>
+                            <li class="nav-item"><a href="about.html" class="nav-link ">About</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link active">Services</a></li>
+                        </ul>
+                    </div>
             </nav>
         </div>
     </header>
@@ -130,6 +163,8 @@
                 </div>
             </div>
 
+
+
             <button type="button" id="calculateButton" class="btn btn-primary">Calculate Risk</button>        </form>
 
         <div id="result"></div>
@@ -159,5 +194,19 @@
 </table>
   
     <script src="script.js"></script>
+    <section class="">
+        <!-- Footer -->
+        <div class="container-fluid bg-primary ">
+            <footer>
+                <!-- Grid container -->
+                <div class="text-white w-100 " >
+
+                    <a href="https://github.com/dhdhagai/scipotech_temp" target="_blank"><img src="github-mark.svg" class="img-fluid float-end"></a>
+                    
+                </div>
+            </footer>
+        </div>
+        <!-- Footer -->
+    </section>
 </body>
 </html>

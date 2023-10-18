@@ -1,9 +1,0 @@
-[{
-  "relation": ["delegate_permission/common.handle_all_urls"],
-  "target": {
-    "namespace": "android_app",
-    "package_name": "com.counter.dhdhagai",
-    "sha256_cert_fingerprints":
-    ["C9:1A:A7:A0:BB:FE:EF:CE:DF:C1:61:B7:EE:48:5C:79:15:F3:E3:8E:AC:E2:B1:F6:B7:73:12:91:CD:1D:AD:69"]
-  }
-}]
