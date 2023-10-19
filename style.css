@@ -1,0 +1,153 @@
+body {
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+}
+.container {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h1 {
+    color: #007bff;
+  text-align: center;
+}
+.nav-pills .nav-item .nav-link {
+    color: #007bff;
+}
+.nav-pills .nav-item .nav-link.active {
+    background-color: #007bff;
+    color: #fff;
+}
+.intro {
+    background-color: #007bff;
+    color: #fff;
+    padding: 50px 0;
+}
+.intro h2 {
+    font-weight: 700;
+}
+.services {
+    padding: 50px 0;
+}
+.card {
+    margin-bottom: 20px;
+    border: none;
+}
+.card-body {
+    text-align: center;
+}
+.card-title {
+    font-weight: 700;
+}
+.navbar-nav .nav-link.active {
+color: #ffffff; /* Set the color to white */
+} 
+.bulu{
+background: #007bff;
+border-radius:10px;
+}
+a.nav-link.active{
+    text-align: center;
+}
+
+label {
+    font-weight: 500;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+#calculateButton {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#result {
+    margin-top: 20px;
+}
+table {
+font-family: arial, sans-serif;
+border-collapse: collapse;
+width: 100%;
+}
+
+td, th {
+border: 1px solid #007bff;
+text-align: left;
+padding: 8px;
+}
+
+tr:nth-child(even) {
+background-color: #FFFF00;
+}
+
+.moving-text {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+background-color: #ff0000; /* Background color for visibility */
+color: #fff; /* Text color */
+text-align: center;
+padding: 10px;
+font-size: 16px;
+white-space: nowrap; /* Prevent text from wrapping */
+overflow: hidden; /* Hide overflowing content */
+animation: scrollText 0.5s linear; /* Adjust duration as needed */
+}
+
+@keyframes scrollText {
+0% {
+transform: translateY(-100%);
+}
+100% {
+transform: translateY(0);
+}
+
+}
+
+input[type="number"] {
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#result {
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+        /* GitHub container styles */
+        .github-container {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        /* GitHub profiles section styles */
+        .github-section {
+            border-radius: 10px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .github-profile {
+            margin-top: 10px;
+        }

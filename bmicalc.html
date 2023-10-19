@@ -4,70 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-sclae=1.o">
     <title>BMI Calculator</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <style>
-        body {
-            background-color: #f4f4f4;
-            font-family: Arial, sans-serif;
-        }
-        .container {
-            background-color: #fff;
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 20px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            color: #007bff;
-            text-align: center;
-            margin-top: 20px;
-        }
-        label {
-            margin-top: 10px;
-        }
-        input[type="number"] {
-            width: 100%;
-            margin-top: 5px;
-            margin-bottom: 15px;
-        }
-        button {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            background-color: #007BFF;
-            color: #fff;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-        }
-
-    .nav-link {
-        color:#007BFF
-    }
-
-
-        #result {
-            text-align: center;
-            margin-top: 20px;
-        }
-    </style>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+        <header>
+            <div class="container">
+                <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                    <div class="container-fluid">
+                      <a class="navbar-brand" href="/">Health Monitoring</a>
+                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+                      <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                          <li class="nav-item justify-content-center">
+                            <a class="nav-link" href="/index.html">Home</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="/tips.html">Tips</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="/about.html">About</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link  active bulu" href="/index.html#services">Services</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </nav>
+            </div>
+        </header>
     <div class="container">
         <h1>BMI Calculator</h1>
-        <nav>
-            <ul class="nav nav-pills justify-content-center"> <!-- Centering the navigation links -->
-                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="tips.html" class="nav-link">Tips</a></li>
-                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="#" class="nav-link active">Services</a></li>
-            </ul>
-        </nav>
-        <label for="height">Height (cm):</label>
-        <input type="number" id="height" step="1" class="form-control" placeholder="Enter your height in centimeters" required>
 
-        <label for="weight">Weight (kg):</label>
-        <input type="number" id="weight" step="0.01" class="form-control" placeholder="Enter your weight in kilograms" required>
+        <label for="height">Height</label>
+        <input type="number" id="height" step="1" class="form-control" placeholder="Enter your height" required>
+
+        <label for="weight">Weight</label>
+        <input type="number" id="weight" step="0.01" class="form-control" placeholder="Enter your weight" required>
 
         <button class="btn btn-primary" onclick="calculateBMI()">Calculate BMI</button>
 
@@ -75,21 +50,22 @@
     </div>
 
     <script>
+        let bmi
+        var height = parseFloat(document.getElementById("height").value);
+        var weight = parseFloat(document.getElementById("weight").value);
         function calculateBMI() {
-            var heightInCentimeters = parseFloat(document.getElementById("height").value);
-            var weight = parseFloat(document.getElementById("weight").value);
-
-            if (isNaN(heightInCentimeters) || isNaN(weight) || heightInCentimeters <= 0 || weight <= 0) {
+            var system = document.getElementById("imperial")
+            height = parseFloat(document.getElementById("height").value);
+            weight = parseFloat(document.getElementById("weight").value);
+            if (isNaN(height) || isNaN(weight) || height <= 0 || weight <= 0) {
                 document.getElementById("result").innerHTML = "Please enter valid height and weight.";
                 return;
             }
 
             // Convert height from centimeters to meters (1 meter = 100 centimeters)
-            var heightInMeters = heightInCentimeters / 100;
-
-            var bmi = weight / (heightInMeters * heightInMeters);
-
-            document.getElementById("result").innerHTML = "Your BMI is: " + bmi.toFixed(2);
+            height = height / 100
+            bmi = weight / height * height
+            document.getElementById("result").innerHTML = "Your BMI is: " + bmi.toFixed(5);
         }
     </script>
 
@@ -108,5 +84,9 @@
         </div>
         <!-- Footer -->
     </section>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
 </body>
 </html>
