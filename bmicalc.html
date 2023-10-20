@@ -64,7 +64,7 @@
 
             // Convert height from centimeters to meters (1 meter = 100 centimeters)
             height = height / 100
-            bmi = weight / height * height
+            bmi = weight / (height * height);
             document.getElementById("result").innerHTML = "Your BMI is: " + bmi.toFixed(5);
         }
     </script>
