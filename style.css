@@ -85,23 +85,12 @@ padding: 8px;
 }
 
 tr:nth-child(even) {
-background-color: #FFFF00;
+background-color: #FFF;
+}
+tr:nth-child(odd){
+    background: lightgrey;
 }
 
-.moving-text {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-background-color: #ff0000; /* Background color for visibility */
-color: #fff; /* Text color */
-text-align: center;
-padding: 10px;
-font-size: 16px;
-white-space: nowrap; /* Prevent text from wrapping */
-overflow: hidden; /* Hide overflowing content */
-animation: scrollText 0.5s linear; /* Adjust duration as needed */
-}
 
 @keyframes scrollText {
 0% {
@@ -150,4 +139,9 @@ button {
 
         .github-profile {
             margin-top: 10px;
+        }
+
+        .img-github-mark{
+            width: 50px;
+            height: 50px;
         }
