@@ -35,3 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
         resultDiv.textContent = `Your diabetes risk score: ${risk}`;
     });
 });
+
+
+//Dark Mode
+
