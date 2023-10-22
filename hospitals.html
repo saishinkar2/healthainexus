@@ -26,6 +26,10 @@
     </style>
 </head>
 <body>
+    <div class="bg-danger text-white text-center">
+        <p >Disclaimer: The Results are not accurate. Result may vary upon your devices and browsers.( Laptops And PC's dont usually show accurate results)</p>
+      </div>
+          
     <header>
         <div class="container">
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -61,6 +65,7 @@
               </nav>
         </div>
     </header>
+    
     <div class="container mt-5">
         <h1 class="text-center">Nearby Hospitals Finder</h1>
         <p class="text-center">Click the button to find nearby hospitals:</p>
@@ -90,6 +95,7 @@
                         hospitalsResponse.data.forEach(item => {
                             resultsDiv.innerHTML += `<p>${item.name}</p>`;
                         });
+                        resultsDiv.innerHTML +=`<p style="font-weight:bold;">Dont See Hospitals Near You? Are you on google Chrome? Try switching to microsoft edge on Windows and safari on MacOS</p>`
 
                         document.getElementById("findHospitalsBtn").disabled = true;
 
