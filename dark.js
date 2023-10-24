@@ -4,6 +4,7 @@ let navbar = document.getElementsByClassName("container");
 let nav = document.getElementsByTagName("a");
 let div = document.getElementsByTagName("div");
 let tbl = document.getElementById("table")
+let label = document.querySelectorAll(".form-label")
 function toggleDarkMode(){
     if(localStorage.getItem("darkMode") == "enabled"){
         sw.checked = true
@@ -42,6 +43,9 @@ function enableDarkMode() {
     item.style.backgroundColor = "#2c3e50";
     item.style.color = "white";
   }
+  label.forEach(element => {
+    element.classList.add("dark")
+  })
   document.getElementById("table").classList.add("table-dark");
 }
 
@@ -89,6 +93,9 @@ function disableDarkMode() {
     item.style.backgroundColor = "#FFFFFF";
     item.style.color = "black";
   }
+  label.forEach(element => {
+    element.classList.remove("dark")
+  })
   tbl.classList.remove("table-dark");
 }
 
@@ -189,6 +196,7 @@ function includeHTML() {
   nav = document.getElementsByTagName("a");
   div = document.getElementsByTagName("div");
   tbl = document.getElementById("table")
+  label = document.querySelectorAll(".form-label")
   addEv();
   toggleDarkMode()
 }

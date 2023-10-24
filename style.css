@@ -152,3 +152,7 @@ a.bt{
         :root{
             --d:black;
         }
+
+.dark{
+    color:white
+}
