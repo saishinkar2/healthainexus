@@ -98,7 +98,7 @@ function disableDarkMode() {
   label.forEach(element => {
     element.classList.remove("dark")
   })
-     ourserv.classList.add("dark")
+     ourserv.classList.remove("dark")
   tbl.classList.remove("table-dark");
 }
 
