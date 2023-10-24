@@ -4,6 +4,7 @@ let navbar = document.getElementsByClassName("container");
 let nav = document.getElementsByTagName("a");
 let div = document.getElementsByTagName("div");
 let tbl = document.getElementById("table")
+let ourserv = document.getElementById("ourserv")
 let label = document.querySelectorAll(".form-label")
 function toggleDarkMode(){
     if(localStorage.getItem("darkMode") == "enabled"){
@@ -46,6 +47,7 @@ function enableDarkMode() {
   label.forEach(element => {
     element.classList.add("dark")
   })
+    ourserv.classList.add("dark")
   document.getElementById("table").classList.add("table-dark");
 }
 
@@ -96,6 +98,7 @@ function disableDarkMode() {
   label.forEach(element => {
     element.classList.remove("dark")
   })
+     ourserv.classList.add("dark")
   tbl.classList.remove("table-dark");
 }
 
@@ -196,6 +199,7 @@ function includeHTML() {
   nav = document.getElementsByTagName("a");
   div = document.getElementsByTagName("div");
   tbl = document.getElementById("table")
+  ourserv = document.getElementById("ourserv")
   label = document.querySelectorAll(".form-label")
   addEv();
   toggleDarkMode()
