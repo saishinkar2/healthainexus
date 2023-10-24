@@ -24,6 +24,7 @@ function enableDarkMode() {
   document.body.style.background = "#2c3e50";
   document.getElementById("drpdwn").classList.toggle("dropdown-menu-dark")
   // Change the background and text color of the body
+  ourserv.style.color="white"
   document.body.style.backgroundColor = "#2c3e50";
   document.body.style.color = "white";
 
@@ -69,7 +70,7 @@ function disableDarkMode() {
   // Change the background and text color of the body
   document.body.style.backgroundColor = "#FFFFFF";
   document.body.style.color = "white";
-
+ourserv.style.color="black"
   for (let item of card) {
     item.style.backgroundColor = "#FFFFFF";
     item.style.color = "white";
