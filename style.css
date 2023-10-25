@@ -1,14 +1,13 @@
-body {
-    background-color: #f4f4f4;
-    font-family: Arial, sans-serif;
+/* Light Mode Styles */
+.light-mode {
+    background-color: #ffffff;
+    color: #000000;
 }
-.container {
-    
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    margin-top: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+/* Dark Mode Styles */
+.dark-mode {
+    background-color: #333333;
+    color: #ffffff;
 }
 nav.navbar{
     padding:0;
@@ -18,9 +17,7 @@ h1 {
     color: #00a79D;
   text-align: center;
 }
-.nav-pills .nav-item .nav-link {
-    color: #00a79D;
-}
+
 .nav-pills .nav-item .nav-link.active {
     background-color: #00a79D;
     color: #fff;

@@ -6,147 +6,11 @@ let div = document.getElementsByTagName("div");
 let tbl = document.getElementById("table")
 let ourserv = document.getElementById("ourserv")
 let label = document.querySelectorAll(".form-label")
-function toggleDarkMode(){
-    if(localStorage.getItem("darkMode") == "enabled"){
-        sw.checked = true
-        enableDarkMode()
-    }else if(localStorage.getItem("darkMode") == "disabled"){
-        sw.checked = false
-        disableDarkMode()
-    }
-}
-
-
-
-
-
-function enableDarkMode() {
-  document.body.style.background = "#2c3e50";
-  document.getElementById("drpdwn").classList.toggle("dropdown-menu-dark")
-  // Change the background and text color of the body
-  
-  document.body.style.backgroundColor = "#2c3e50";
-  document.body.style.color = "white";
-
-  for (let item of card) {
-    item.style.backgroundColor = "#2c3e50";
-    item.style.color = "white";
-  }
-
-  for (let item of navbar) {
-    item.style.backgroundColor = "white"; // Set the background color to white
-    item.style.color = "#2c3e50"; // Set the text color to the body color
-  }
-
-  for (let item of nav) {
-    item.style.color = "white";
-  }
-  for (let item of div) {
-    item.style.backgroundColor = "#2c3e50";
-    item.style.color = "white";
-  }
-try{  label.forEach(element => {
-    element.classList.add("dark")
-  })
-    ourserv.classList.add("dark")
-  document.getElementById("table").classList.add("table-dark");}
-  catch(error){
-console.log("Will Not  Work")
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-function disableDarkMode() {
-  document.body.style.background = "#2c3e50";
-  document.getElementById("drpdwn").classList.remove("dropdown-menu-dark")
-  // Change the background and text color of the body
-  document.body.style.backgroundColor = "#FFFFFF";
-  document.body.style.color = "white";
-
-  for (let item of card) {
-    item.style.backgroundColor = "#FFFFFF";
-    item.style.color = "white";
-  }
-
-  for (let item of navbar) {
-    item.style.backgroundColor = "white"; // Set the background color to white
-    item.style.color = "#FFFFFF"; // Set the text color to the body color
-  }
-
-  for (let item of nav) {
-    if (
-      item.classList.forEach((element) => {
-        return element == "active";
-      })
-    ) {
-      item.style.color = "white";
-    } else {
-      item.style.color = "black";
-    }
-  }
-  for (let item of div) {
-    item.style.backgroundColor = "#FFFFFF";
-    item.style.color = "black";
-  }
-  label.forEach(element => {
-    element.classList.remove("dark")
-  })
-try{  label.forEach(element => {
-    element.classList.remove("dark")
-  })
-    ourserv.classList.remove("dark")
-  document.getElementById("table").classList.remove("table-dark");}
-  catch(error){
-console.log("Will Not  Work")
-  };
-}
-
-
-
-
-
-
-
-
-
-
-
-
 function addEv() {
   sw.addEventListener("click", () => {
-    if (sw.checked) {
-      localStorage.setItem("darkMode", "enabled");
-      toggleDarkMode()
-      
-    } else {
-      localStorage.setItem("darkMode", "disabled");
-      toggleDarkMode()
-    }
-  });
-  
+document.getElementById("content").classList.toggle('dark-mode');
 }
-
-
-
-
-
-
-
-
-
-
-
+  )}
 function includeHTML() {
   var z, i, elmnt, file, xhttp;
   function setActiveAndBuluClass() {
@@ -211,8 +75,8 @@ function includeHTML() {
   tbl = document.getElementById("table")
   ourserv = document.getElementById("ourserv")
   label = document.querySelectorAll(".form-label")
-  addEv();
-  toggleDarkMode()
+addEv()
+
 }
 
 // Call includeHTML when the page loads
