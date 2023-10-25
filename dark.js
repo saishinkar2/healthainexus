@@ -24,7 +24,7 @@ function enableDarkMode() {
   document.body.style.background = "#2c3e50";
   document.getElementById("drpdwn").classList.toggle("dropdown-menu-dark")
   // Change the background and text color of the body
-  ourserv.style.color="white"
+  
   document.body.style.backgroundColor = "#2c3e50";
   document.body.style.color = "white";
 
@@ -45,11 +45,14 @@ function enableDarkMode() {
     item.style.backgroundColor = "#2c3e50";
     item.style.color = "white";
   }
-  label.forEach(element => {
+try{  label.forEach(element => {
     element.classList.add("dark")
   })
     ourserv.classList.add("dark")
-  document.getElementById("table").classList.add("table-dark");
+  document.getElementById("table").classList.add("table-dark");}
+  catch(error){
+console.log("Will Not  Work")
+  }
 }
 
 
@@ -70,7 +73,7 @@ function disableDarkMode() {
   // Change the background and text color of the body
   document.body.style.backgroundColor = "#FFFFFF";
   document.body.style.color = "white";
-ourserv.style.color="black"
+
   for (let item of card) {
     item.style.backgroundColor = "#FFFFFF";
     item.style.color = "white";
@@ -99,8 +102,14 @@ ourserv.style.color="black"
   label.forEach(element => {
     element.classList.remove("dark")
   })
-     ourserv.classList.remove("dark")
-  tbl.classList.remove("table-dark");
+try{  label.forEach(element => {
+    element.classList.remove("dark")
+  })
+    ourserv.classList.remove("dark")
+  document.getElementById("table").classList.remove("table-dark");}
+  catch(error){
+console.log("Will Not  Work")
+  };
 }
 
 
