@@ -4,18 +4,38 @@ window.location = "/index.html"
 function DarkModeToggle() {
   const darkSwitch = localStorage.getItem("darkSwitch");
   const navLinks = document.querySelectorAll(".nav-link");
+const img = document.querySelectorAll(".img-fluid")
 
-
+img.forEach(el => {
+  let src = el.getAttribute("src")
+  if(src == "github-mark.svg"){
+    el.setAttribute("src", "github-mark-white.svg")
+  }
+  if(src == "github-mark-white.svg"){
+    el.setAttribute("src", "github-mark.svg")
+  }
+})
 
   if (darkSwitch === null) {
     navLinks.forEach(element => {
+      try {
+        document.getElementById("table").classList.remove("table-dark")
+      } catch (error) {
+        
+      }
       element.classList.remove("text-white");
-      document.getElementById("drpdwn").classList.remove(".dropdown-menu-dark")
+      document.getElementById("drpdwn").classList.remove("dropdown-menu-dark")
     });
   } else if (darkSwitch === "dark"){
     navLinks.forEach(element => {
+      try {
+        document.getElementById("table").classList.add("table-dark")
+      } catch (error) {
+        console.error(error)
+        console.log("above error may be caused cause there is no table in the page")
+      }
       element.classList.add("text-white");
-      document.getElementById("drpdwn").classList.add(".dropdown-menu-dark")
+      document.getElementById("drpdwn").classList.add("dropdown-menu-dark")
     });
   }
 }
