@@ -4,15 +4,19 @@ window.location = "/index.html"
 function DarkModeToggle() {
   const darkSwitch = localStorage.getItem("darkSwitch");
   const navLinks = document.querySelectorAll(".nav-link");
-const img = document.querySelectorAll(".img-fluid")
-
+  const img = document.querySelectorAll(".img-fluid")
+  const links = document.querySelectorAll(".github-profile")
 
   if (darkSwitch === null) {
     img.forEach(el => {
       el.setAttribute("src", "github-mark.svg")
   })
+  links.forEach(element => {
+    element.classList.remove("text-white")
+  })
     navLinks.forEach(element => {
       try {
+
         document.getElementById("table").classList.remove("table-dark")
       } catch (error) {
         
@@ -35,7 +39,15 @@ const img = document.querySelectorAll(".img-fluid")
       element.classList.add("text-white");
       document.getElementById("drpdwn").classList.add("dropdown-menu-dark")
     });
+
+    links.forEach(element => {
+      element.classList.add("text-white")
+    })
+
   }
+
+
+
 }
 function includeHTML() {
   var z, i, elmnt, file, xhttp;
