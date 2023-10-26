@@ -6,17 +6,11 @@ function DarkModeToggle() {
   const navLinks = document.querySelectorAll(".nav-link");
 const img = document.querySelectorAll(".img-fluid")
 
-img.forEach(el => {
-  let src = el.getAttribute("src")
-  if(src == "github-mark.svg"){
-    el.setAttribute("src", "github-mark-white.svg")
-  }
-  if(src == "github-mark-white.svg"){
-    el.setAttribute("src", "github-mark.svg")
-  }
-})
 
   if (darkSwitch === null) {
+    img.forEach(el => {
+      el.setAttribute("src", "github-mark.svg")
+  })
     navLinks.forEach(element => {
       try {
         document.getElementById("table").classList.remove("table-dark")
@@ -27,6 +21,10 @@ img.forEach(el => {
       document.getElementById("drpdwn").classList.remove("dropdown-menu-dark")
     });
   } else if (darkSwitch === "dark"){
+    img.forEach(el => {
+        el.setAttribute("src", "github-mark-white.svg")
+    })
+    
     navLinks.forEach(element => {
       try {
         document.getElementById("table").classList.add("table-dark")
