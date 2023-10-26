@@ -1,6 +1,3 @@
-if(window.location.pathname=="/"){
-window.location = "/index.html"
-}
 function DarkModeToggle() {
   const darkSwitch = localStorage.getItem("darkSwitch");
   const navLinks = document.querySelectorAll(".nav-link");
@@ -58,7 +55,7 @@ function includeHTML() {
     const navLinks = document.querySelectorAll(".nav-link");
     navLinks.forEach((link) => {
        linkPath = link.getAttribute("href");
-      if (currentPage === linkPath) {
+      if (currentPage === linkPath  || (currentPage == "/")) {
         link.classList.add("active", "bulu");
       } else {
         link.classList.remove("active", "bulu");
@@ -69,7 +66,7 @@ function includeHTML() {
       
       link.classList.remove("active", "bulu");
 
-      if (currentPage === linkPath ) {
+      if (currentPage === linkPath  || (currentPage == "/")) {
         link.classList.add("active", "bulu");
         servicesText.classList.add("active", "bulu");
         
