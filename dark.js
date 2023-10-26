@@ -58,7 +58,7 @@ function includeHTML() {
     const navLinks = document.querySelectorAll(".nav-link");
     navLinks.forEach((link) => {
        linkPath = link.getAttribute("href");
-      if (currentPage === linkPath || (linkPath === "/")) {
+      if (currentPage === linkPath) {
         link.classList.add("active", "bulu");
       } else {
         link.classList.remove("active", "bulu");
