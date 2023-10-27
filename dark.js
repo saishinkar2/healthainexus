@@ -57,9 +57,9 @@ function includeHTML() {
     const servicesText = document.querySelector(".nav-link.serv");
     const navLinks = document.querySelectorAll(".nav-link");
     navLinks.forEach((link) => {
-       let linkPath = link.getAttribute("href");
-       console.log(linkPath, currentPage)
-      if (currentPage === linkPath) {
+      let linkPath = link.getAttribute("href");
+      // Check if the current page starts with the linkPath
+      if (currentPage.startsWith(linkPath)) {
         link.classList.add("active", "bulu");
       } else {
         link.classList.remove("active", "bulu");
@@ -67,13 +67,11 @@ function includeHTML() {
     });
     dropdownLinks.forEach((link) => {
       const linkPath = link.getAttribute("href");
-      
       link.classList.remove("active", "bulu");
-
-      if (currentPage === linkPath || currentPage == "#") {
+      // Check if the current page starts with the linkPath
+      if (currentPage.startsWith(linkPath)) {
         link.classList.add("active", "bulu");
         servicesText.classList.add("active", "bulu");
-        
       }
     });
   }
@@ -81,7 +79,6 @@ function includeHTML() {
   z = document.getElementsByTagName("*");
   for (i = 0; i < z.length; i++) {
     elmnt = z[i];
-
     file = elmnt.getAttribute("w3-include-html");
     if (file) {
       xhttp = new XMLHttpRequest();
@@ -89,34 +86,30 @@ function includeHTML() {
         if (this.readyState == 4) {
           if (this.status == 200) {
             elmnt.innerHTML = this.responseText;
-
             setActiveAndBuluClass();
           }
           if (this.status == 404) {
             elmnt.innerHTML = "Page not found.";
           }
-
           elmnt.removeAttribute("w3-include-html");
           includeHTML();
         }
       };
       xhttp.open("GET", file, true);
       xhttp.send();
-
       return;
     }
   }
-
-  setActiveAndBuluClass();
-toggleDarkModeButton = document.querySelector("[sw1]");
-DarkModeToggle()
+  toggleDarkModeButton = document.querySelector("[sw1]");
+DarkModeToggle();
 toggleDarkModeButton.addEventListener("click", () => {
   setTimeout(() => {
-    DarkModeToggle()
+    DarkModeToggle();
   }, 100);
-})
+});
+
+  setActiveAndBuluClass(); // Call setActiveAndBuluClass at the end
 }
 
 // Call includeHTML when the page loads
 includeHTML();
-
