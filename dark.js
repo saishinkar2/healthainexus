@@ -1,6 +1,70 @@
-if(window.location.pathname  == "/"){
-  window.location = "/index.html"
-}
+
+$(function () {
+  $("#hm-nav").load("header.html", function (response, status, request) {
+    
+    switch (page) {
+      case "home":
+        $(".nav-link").removeClass("active");
+        $(".hm-home").addClass("active bulu");
+        break;
+      case "tips":
+        $(".nav-link").removeClass("active");
+        $(".hm-tips").addClass("active bulu");
+
+        break;
+      case "about":
+        $(".nav-link").removeClass("active");
+
+        $(".hm-about").addClass("active bulu");
+
+        break;
+      case "diabetes":
+        $(".nav-link").removeClass("active");
+        $(".dropdown-item").removeClass("active");
+
+        $(".hm-diabetes, .hm-services").addClass("active bulu");
+        break;
+
+        case "helpline":
+        $(".nav-link").removeClass("active");
+        $(".dropdown-item").removeClass("active");
+
+        $(".hm-helpline, .hm-services").addClass("active bulu");
+        break;
+      
+        case "bmi":
+        $(".nav-link").removeClass("active");
+        $(".dropdown-item").removeClass("active");
+
+        $(".hm-bmi, .hm-services").addClass("active bulu");
+        break;
+        case "hospital":
+        $(".nav-link").removeClass("active");
+        $(".dropdown-item").removeClass("active");
+
+        $(".hm-hospital, .hm-services").addClass("active bulu");
+        break;
+        case "disease":
+        $(".nav-link").removeClass("active");
+        $(".dropdown-item").removeClass("active");
+
+        $(".hm-disease, .hm-services").addClass("active bulu");
+        break;
+      
+    }
+    
+
+  });
+  $("#hm-footer").load("footer.html");
+
+document.getElementById("darkSwitch").addEventListener("click", () => {
+  setTimeout(() => {
+    DarkModeToggle()
+  }, 100);
+})
+});
+
+
 function DarkModeToggle() {
   const darkSwitch = localStorage.getItem("darkSwitch");
   const navLinks = document.querySelectorAll(".nav-link");
@@ -24,6 +88,7 @@ function DarkModeToggle() {
       element.classList.remove("text-white");
       document.getElementById("drpdwn").classList.remove("dropdown-menu-dark")
     });
+    return false
   } else if (darkSwitch === "dark"){
     img.forEach(el => {
         el.setAttribute("src", "github-mark-white.svg")
@@ -43,80 +108,11 @@ function DarkModeToggle() {
     links.forEach(element => {
       element.classList.add("text-white")
     })
+return true
 
   }
 
 
 
 }
-function includeHTML() {
-  var z, i, elmnt, file, xhttp;
-  function setActiveAndBuluClass() {
-    const currentPage = window.location.pathname;
-    const dropdownLinks = document.querySelectorAll(".dropdown-item");
-    const servicesText = document.querySelector(".nav-link.serv");
-    const navLinks = document.querySelectorAll(".nav-link");
-    navLinks.forEach((link) => {
-      let linkPath = link.getAttribute("href");
-      console.log(linkPath === "/")
-      console.log(currentPage, linkPath)
-      if (linkPath === "/") {
-        // Check if the current page is the home page
-        if (currentPage === "/") {
-          link.classList.add("active", "bulu");
-        } else {
-          link.classList.remove("active", "bulu");
-        }
-      } else if (currentPage.startsWith(linkPath)) {
-        link.classList.add("active", "bulu");
-      } else {
-        link.classList.remove("active", "bulu");
-      }
-    });
-    dropdownLinks.forEach((link) => {
-      const linkPath = link.getAttribute("href");
-      link.classList.remove("active", "bulu");
-      if (currentPage.startsWith(linkPath)) {
-        link.classList.add("active", "bulu");
-        servicesText.classList.add("active", "bulu");
-      }
-    });
-  }
-
-  z = document.getElementsByTagName("*");
-  for (i = 0; i < z.length; i++) {
-    elmnt = z[i];
-    file = elmnt.getAttribute("w3-include-html");
-    if (file) {
-      xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function () {
-        if (this.readyState == 4) {
-          if (this.status == 200) {
-            elmnt.innerHTML = this.responseText;
-            setActiveAndBuluClass();
-          }
-          if (this.status == 404) {
-            elmnt.innerHTML = "Page not found.";
-          }
-          elmnt.removeAttribute("w3-include-html");
-          includeHTML();
-        }
-      };
-      xhttp.open("GET", file, true);
-      xhttp.send();
-      return;
-    }
-  }
-  toggleDarkModeButton = document.querySelector("[sw1]");
-DarkModeToggle();
-toggleDarkModeButton.addEventListener("click", () => {
-  setTimeout(() => {
-    DarkModeToggle();
-  }, 100);
-});
-  setActiveAndBuluClass(); // Call setActiveAndBuluClass at the end
-}
-
-// Call includeHTML when the page loads
-includeHTML();
 
