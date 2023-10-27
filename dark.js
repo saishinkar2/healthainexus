@@ -58,8 +58,14 @@ function includeHTML() {
     const navLinks = document.querySelectorAll(".nav-link");
     navLinks.forEach((link) => {
       let linkPath = link.getAttribute("href");
-      // Check if the current page starts with the linkPath and the linkPath is not just "/"
-      if (currentPage.startsWith(linkPath) && linkPath !== "/") {
+      if (linkPath === "/") {
+        // Check if the current page is the home page
+        if (currentPage === "/") {
+          link.classList.add("active", "bulu");
+        } else {
+          link.classList.remove("active", "bulu");
+        }
+      } else if (currentPage == linkPath) {
         link.classList.add("active", "bulu");
       } else {
         link.classList.remove("active", "bulu");
@@ -68,8 +74,7 @@ function includeHTML() {
     dropdownLinks.forEach((link) => {
       const linkPath = link.getAttribute("href");
       link.classList.remove("active", "bulu");
-      // Check if the current page starts with the linkPath and the linkPath is not just "/"
-      if (currentPage.startsWith(linkPath) && linkPath !== "/") {
+      if (currentPage.startsWith(linkPath)) {
         link.classList.add("active", "bulu");
         servicesText.classList.add("active", "bulu");
       }
@@ -107,9 +112,9 @@ toggleDarkModeButton.addEventListener("click", () => {
     DarkModeToggle();
   }, 100);
 });
-
   setActiveAndBuluClass(); // Call setActiveAndBuluClass at the end
 }
 
 // Call includeHTML when the page loads
 includeHTML();
+
