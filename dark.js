@@ -65,7 +65,7 @@ function includeHTML() {
         } else {
           link.classList.remove("active", "bulu");
         }
-      } else if (currentPage == linkPath) {
+      } else if (currentPage.startsWith(linkPath)) {
         link.classList.add("active", "bulu");
       } else {
         link.classList.remove("active", "bulu");
