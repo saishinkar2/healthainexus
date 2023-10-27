@@ -58,6 +58,8 @@ function includeHTML() {
     const navLinks = document.querySelectorAll(".nav-link");
     navLinks.forEach((link) => {
       let linkPath = link.getAttribute("href");
+      console.log(linkPath === "/")
+      console.log(currentPage, linkPath)
       if (linkPath === "/") {
         // Check if the current page is the home page
         if (currentPage === "/") {
