@@ -1,4 +1,18 @@
-
+.form-switch .form-check-input{
+    position:absolute;
+    right:20px;
+}
+.custom-control-label{
+    position:absolute;
+    right:60px;
+}
+table{
+    padding: 100px;
+}
+    body {
+      margin: 0;
+      padding: 0;
+    }
 [data-theme="dark"]{
     background-color: #111 !important;
     color: #ffffff !important; 
