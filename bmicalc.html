@@ -74,5 +74,24 @@
   </div>
   <script src="dark-mode-switch.min.js"></script>
   <script src="dark.js"></script>
+  <script>
+    let bmi
+    var height = parseFloat(document.getElementById("height").value);
+    var weight = parseFloat(document.getElementById("weight").value);
+    function calculateBMI() {
+        var system = document.getElementById("imperial")
+        height = parseFloat(document.getElementById("height").value);
+        weight = parseFloat(document.getElementById("weight").value);
+        if (isNaN(height) || isNaN(weight) || height <= 0 || weight <= 0) {
+            alert("Please enter valid height and weight.")
+            return;
+        }
+
+        // Convert height from centimeters to meters (1 meter = 100 centimeters)
+        height = height / 100
+        bmi = weight / (height * height);
+        alert("Your BMI is: " + bmi.toFixed(10))
+    }
+</script>
 </body>
 </html>
