@@ -1,65 +1,64 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("riskCheckerForm");
-    const resultDiv = document.getElementById("result");
+document.getElementById('chat-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const apiKey = 'AIzaSyDOpOFfsBVxsHqGDQZGdO0efDlHcPgfmNA';
+    const input = document.getElementById('user-input');
+    const submitButton = document.querySelector('button[type="submit"]'); // Assuming you have a submit button
+    const message = input.value.trim();
+    if (!message) return;
 
-    document.getElementById("calculateButton").addEventListener("click", function () {
-        
-        const age = parseInt(document.getElementById("age").value);
-        const familyHistory = document.querySelector('input[name="familyHistory"]:checked').value;
-        const BMI = parseFloat(document.getElementById("BMI").value);
-        const exercise = parseFloat(document.getElementById("exercise").value);
-        const diet = document.querySelector('input[name="diet"]:checked').value;
-        let count = 0 ;
-        let run = false;
-        document.querySelectorAll("input").forEach(element => {
-            if(element.getAttribute("type") == "number"){
-              if(parseFloat(element.value)){
-              }
-              else{
-                count +=1 
-                
-              }
-            }
-            if (count > 0) {
-                run = false
-            }else{
-                run = true
-            }
-          })
-diabetesFinal(run,familyHistory,BMI,exercise,diet)
- 
+    addMessage('User', message);
+    input.value = ''; // Clear input field after sending message
+    submitButton.disabled = true; // Disable the button to prevent another submit
 
-    });
+    const data = {
+        "contents": [
+            {
+                "parts": [
+                    {
+                        "text": message
+                    }
+                ]
+            }
+        ]
+    }
+
+    try {
+        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+
+        if (!response.ok) {
+            const errorDetails = await response.json();
+            throw new Error(`HTTP error! status: ${response.status}, details: ${JSON.stringify(errorDetails)}`);
+        }
+
+        const result = await response.json();
+        const botReply = result.candidates[0]?.content?.parts[0]?.text || "Sorry, I don't have a response.";
+        addMessage('Bot', botReply);
+
+    } catch (error) {
+        console.error('Error making API request:', error.message);
+        addMessage('Bot', `Error processing your request: ${error.message}`);
+    } finally {
+        submitButton.disabled = false; // Re-enable the submit button once the request is complete
+    }
 });
-function diabetesFinal(correct,familyHistory,BMI,exercise,diet){
-if(correct){
-    if (correct) {
-        let risk = 0;
-    
-        if (age >= 40) {
-            risk += 2;
-        }
-    
-        if (familyHistory === "Yes") {
-            risk += 3;
-        }
-    
-        if (BMI >= 30) {
-            risk += 5;
-        }
-    
-        if (exercise < 3) {
-            risk += 3;
-        }
-    
-        if (diet === "NotHealthy") {
-            risk += 4;
-        }
-        alert(`Your diabetes risk score: ${risk}`);
-    
-      }
-}else{
-    alert("Please enter a valid number")
-}
-}
 
+function addMessage(sender, message) {
+    const messages = document.getElementById('messages');
+    const div = document.createElement('div');
+
+    var converter = new showdown.Converter();
+    var htmlMessage = converter.makeHtml(message); // Markdown to HTML conversion
+
+    div.classList.add( 'p-2', 'mb-2', 'rounded', sender === 'User' ? 'bg-light' : 'chatmsg');
+
+    div.innerHTML = `<strong>${sender}:</strong> ${htmlMessage}`;
+
+    messages.appendChild(div);
+    messages.scrollTop = messages.scrollHeight; // Scroll to the latest message
+}
