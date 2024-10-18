@@ -1,6 +1,6 @@
 ### Health Monitoring
 
-Health Monitoring ==> by Dhruv Dhagai and Sai Shinkar - A wellness-focused health monitoring app.
+Health Monitoring ==> by Sai Shinkar and Saksham Pandey - A wellness-focused health monitoring app.
 
 - **Diabetes Checker:** Monitor blood sugar levels easily for effective diabetes management.
 
