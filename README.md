@@ -4,7 +4,7 @@ Health Monitoring ==> by Dhruv Dhagai and Sai Shinkar - A wellness-focused healt
 
 - **Diabetes Checker:** Monitor blood sugar levels easily for effective diabetes management.
 
-- **Disease Checker:** Identify common health conditions with symptom input for proactive measures.
+- **Health AI:** An Artificial Intelligence which will give you correct response to the symptoms of an dieases.
 
 - **Helpline Numbers of India:** Quick access to essential emergency and healthcare contacts.
 
