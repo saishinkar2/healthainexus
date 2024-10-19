@@ -30,139 +30,60 @@
 
     </section>
     
-    <div class=" container table-responsive w-50 " >
-            <h2>Emergency Contact Information</h2>
-            <table class="table table-striped" id="table">
-              <thead>
-                <tr>
-                  <th>Service</th>
-                  <th>Contact Number</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>National Emergency Number</td>
-                  <td>112</td>
-                </tr>
-                <tr>
-                  <td>Police</td>
-                  <td>100</td>
-                </tr>
-                <tr>
-                  <td>Fire</td>
-                  <td>101</td>
-                </tr>
-                <tr>
-                  <td>Ambulance</td>
-                  <td>102</td>
-                </tr>
-                <tr>
-                  <td>Traffic Police</td>
-                  <td>103</td>
-                </tr>
-                <tr>
-                  <td>Women Helpline</td>
-                  <td>1091</td>
-                </tr>
-                <tr>
-                  <td>Women Helpline (Domestic)</td>
-                  <td>181</td>
-                </tr>
-                <tr>
-                  <td>Aids Helpline</td>
-                  <td>1097</td>
-                </tr>
-                <tr>
-                  <td>Disaster Management / Medical Helpline</td>
-                  <td>109</td>
-                </tr>
-                <tr>
-                  <td>Indian Railway General Enquiry</td>
-                  <td>131</td>
-                </tr>
-                <tr>
-                  <td>Railway Enquiry</td>
-                  <td>139</td>
-                </tr>
-                <tr>
-                  <td>Telephone Complaint Booking</td>
-                  <td>199</td>
-                </tr>
-                <tr>
-                  <td>Anti Corruption Helpline</td>
-                  <td>1031</td>
-                </tr>
-                <tr>
-                  <td>Emergency Relief Centre on National Highways</td>
-                  <td>1033</td>
-                </tr>
-                <tr>
-                  <td>Anti Poison</td>
-                  <td>1069</td>
-                </tr>
-                <tr>
-                  <td>Train Accident</td>
-                  <td>1011</td>
-                </tr>
-                <tr>
-                  <td>Road Accident</td>
-                  <td>1073</td>
-                </tr>
-                <tr>
-                  <td>Earth Quake Helpline Service</td>
-                  <td>1092</td>
-                </tr>
-                <tr>
-                  <td>LPG Emergency Helpline number</td>
-                  <td>1906</td>
-                </tr>
-                <tr>
-                  <td>Air Accident</td>
-                  <td>1011</td>
-                </tr>
-                <tr>
-                  <td>Child Abuse Hotline</td>
-                  <td>1098</td>
-                </tr>
-                <tr>
-                  <td>Blood Bank Information</td>
-                  <td>1910</td>
-                </tr>
-                <tr>
-                  <td>Eye Donation / Eye Bank Information Service</td>
-                  <td>1919</td>
-                </tr>
-                <tr>
-                  <td>Kisan Cell Center</td>
-                  <td>1551</td>
-                </tr>
-                <tr>
-                  <td>Aadhar Card (UIDAI)</td>
-                  <td>1947</td>
-                </tr>
-                <tr>
-                  <td>Election Commission of India</td>
-                  <td>1950</td>
-                </tr>
-                <tr>
-                  <td>National Consumer Helpline</td>
-                  <td>1800-11-4000</td>
-                </tr>
-                <tr>
-                  <td>Tourist Helpline</td>
-                  <td>1363 / 1800111363</td>
-                </tr>
-                <tr>
-                  <td>Senior Citizen Helpline</td>
-                  <td>1091, 1291</td>
-                </tr>
-                <tr>
-                  <td>Corona Virus (COVID-19) Helpline</td>
-                  <td>1075 / 011-23978046 / +91-11-23978046</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+    <div class="container">
+      <h2>Emergency Contact Information</h2>
+      <input type="text" id="searchInput" class="form-control" placeholder="Search for a service..." />
+      <table class="table table-striped table-responsive" id="helplineTable">
+          <thead>
+              <tr>
+                  <th onclick="sortTable(0)">Service <i class="fas fa-sort"></i></th>
+                  <th onclick="sortTable(1)">Contact Number <i class="fas fa-sort"></i></th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr><td>National Emergency Number</td><td>112</td></tr>
+              <tr><td>Police</td><td>100</td></tr>
+              <tr><td>Fire</td><td>101</td></tr>
+              <tr><td>Ambulance</td><td>102</td></tr>
+              <tr><td>Traffic Police</td><td>103</td></tr>
+              <tr><td>Women Helpline</td><td>1091</td></tr>
+              <tr><td>Women Helpline (Domestic)</td><td>181</td></tr>
+              <tr><td>Aids Helpline</td><td>1097</td></tr>
+              <tr><td>Disaster Management / Medical Helpline</td><td>109</td></tr>
+              <tr><td>Indian Railway General Enquiry</td><td>131</td></tr>
+              <tr><td>Railway Enquiry</td><td>139</td></tr>
+              <tr><td>Telephone Complaint Booking</td><td>199</td></tr>
+              <tr><td>Anti Corruption Helpline</td><td>1031</td></tr>
+              <tr><td>Emergency Relief Centre on National Highways</td><td>1033</td></tr>
+              <tr><td>Anti Poison</td><td>1069</td></tr>
+              <tr><td>Train Accident</td><td>1011</td></tr>
+              <tr><td>Road Accident</td><td>1073</td></tr>
+              <tr><td>Earthquake Helpline Service</td><td>1092</td></tr>
+              <tr><td>LPG Emergency Helpline Number</td><td>1906</td></tr>
+              <tr><td>Air Accident</td><td>1011</td></tr>
+              <tr><td>Child Abuse Hotline</td><td>1098</td></tr>
+              <tr><td>Blood Bank Information</td><td>1910</td></tr>
+              <tr><td>Eye Donation / Eye Bank Information Service</td><td>1919</td></tr>
+              <tr><td>Kisan Cell Center</td><td>1551</td></tr>
+              <tr><td>Aadhar Card (UIDAI)</td><td>1947</td></tr>
+              <tr><td>Election Commission of India</td><td>1950</td></tr>
+              <tr><td>National Consumer Helpline</td><td>1800-11-4000</td></tr>
+              <tr><td>Tourist Helpline</td><td>1363 / 1800111363</td></tr>
+              <tr><td>Senior Citizen Helpline</td><td>1091, 1291</td></tr>
+              <tr><td>Corona Virus (COVID-19) Helpline</td><td>1075 / 011-23978046 / +91-11-23978046</td></tr>
+              <tr><td>Suicide Prevention Helpline</td><td>022-2754-6669</td></tr>
+              <tr><td>Mental Health Helpline</td><td>1860-266-2345</td></tr>
+              <tr><td>Cyber Crime Helpline</td><td>1930</td></tr>
+              <tr><td>Consumer Complaint Helpline</td><td>1800-11-4000</td></tr>
+              <tr><td>Poison Control Center</td><td>1800-222-122</td></tr>
+              <tr><td>Drug Addiction Helpline</td><td>1800-110-507</td></tr>
+              <tr><td>Healthcare Information Helpline</td><td>1860-266-2345</td></tr>
+              <tr><td>National Mental Health Helpline</td><td>1800-233-3330</td></tr>
+              <tr><td>Emergency Medical Services</td><td>108</td></tr>
+              <tr><td>Hospital Finder Helpline</td><td>1860-266-2345</td></tr>
+          </tbody>
+      </table>
+  </div>
           
         <div id="hm-footer"></div>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -176,5 +97,45 @@
 </div>
 <script src="dark-mode-switch.min.js"></script>
 <script src="dark.js"></script>
+
+<script>
+
+   // Search functionality
+   $('#searchInput').on('keyup', function() {
+            let value = $(this).val().toLowerCase();
+            $('#helplineTable tbody tr').filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+            });
+        });
+
+        // Sort table function
+        function sortTable(columnIndex) {
+            const table = document.getElementById("helplineTable");
+            let switching = true, dir = "asc", switchcount = 0;
+            while (switching) {
+                switching = false;
+                const rows = table.rows;
+                for (let i = 1; i < (rows.length - 1); i++) {
+                    let shouldSwitch = false;
+                    const x = rows[i].getElementsByTagName("TD")[columnIndex];
+                    const y = rows[i + 1].getElementsByTagName("TD")[columnIndex];
+                    if (dir === "asc" ? (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) : (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase())) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                    switchcount++;
+                } else {
+                    if (switchcount === 0 && dir === "asc") {
+                        dir = "desc";
+                        switching = true;
+                    }
+                }
+            }
+        }
+</script>
 </body>
 </html>

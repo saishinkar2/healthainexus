@@ -25,27 +25,85 @@
   <script>let page = "tips";</script>
   <div id="hm-nav"></div>
     <main>
-        <div class="container">
-            <!-- Tips section -->
-            <section class="tips">
-                <h2>Health Tips</h2>
-                <p>Here are some health tips:</p>
-                <ul>
-                    <li>Stay Hydrated: Drink at least 8 glasses of water a day to keep your body hydrated and functioning properly.</li>
-                    <li>Eat a Balanced Diet: Include a variety of fruits, vegetables, whole grains, lean proteins, and healthy fats in your diet.</li>
-                    <li>Get Regular Exercise: Aim for at least 30 minutes of moderate exercise most days of the week to maintain a healthy weight and heart.</li>
-                    <li>Keep up the good work: make lifestyle adjustments to further reduce diabetes risk.</li>
-                    <li>Get Enough Good Sleep: Poor sleep can drive insulin resistance, can disrupt your appetite hormones, and reduce your physical and mental performance.</li>
-                    <li>Limit sugary drinks: Sugar-sweetened beverages increasing risk of heart disease and type 2 diabetes.</li>
-                  <li>Don't fear coffee: Coffee is loaded with health benefits.</li>
-                  <li>Eat nuts and seeds: They are incredibly nutritious.</li>
-                  <li>Stay hrdrated: Hydration is an important and often overlooked marker of health. Staying hydrated helps ensure that your body is functioning optimally and that your blood volume is sufficient.</li>
-                  <li>Maintain your muscle: Building muscle helps you keep up the activities you enjoy at any stage of your life.</li>
-                  <li>Start your day with a cup of co­ffee: Coff­ee consumption is linked to lower rates of depression, If you can’t drink coff­ee because of the caff­eine, try another good-for-you drink like green tea.</li>
-                  <li>Take time to laugh: Hang out with a funny friend, watch a comedy or check out cute videos online. Laughter helps reduce anxiety.</li>
-                 </ul>
-            </section>
-        </div>
+      <div class="container">
+        <section class="tips mt-4">
+            <h2 class="text-center">Health Tips</h2>
+            <p class="text-center">Click on the tips below for more details:</p>
+            <div class="accordion" id="tipsAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Stay Hydrated
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#tipsAccordion">
+                        <div class="accordion-body">
+                            Drink at least 8 glasses of water a day to keep your body hydrated and functioning properly.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Eat a Balanced Diet
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#tipsAccordion">
+                        <div class="accordion-body">
+                            Include a variety of fruits, vegetables, whole grains, lean proteins, and healthy fats in your diet.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Exercise Regularly
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#tipsAccordion">
+                        <div class="accordion-body">
+                            Aim for at least 150 minutes of moderate aerobic activity or 75 minutes of vigorous activity each week.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            Prioritize Sleep
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#tipsAccordion">
+                        <div class="accordion-body">
+                            Aim for 7-9 hours of quality sleep each night to help your body recover and stay energized.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFive">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            Manage Stress
+                        </button>
+                    </h2>
+                    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#tipsAccordion">
+                        <div class="accordion-body">
+                            Practice mindfulness, meditation, or yoga to help reduce stress and improve mental well-being.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="feedback mt-5">
+            <h3>We'd love your feedback!</h3>
+            <form id="feedbackForm">
+                <div class="mb-3">
+                    <label for="userFeedback" class="form-label">Your Feedback:</label>
+                    <textarea class="form-control" id="userFeedback" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Feedback</button>
+            </form>
+        </section>
+    </div>
+
     </main>
     <div id="hm-footer"></div>
     <!-- Bootstrap JavaScript (optional) -->
@@ -62,6 +120,16 @@
       <script src="dark-mode-switch.min.js"></script>
     <script src="dark.js">
     </script>
+<script>
+   // Feedback form submission
+   $('#feedbackForm').submit(function (event) {
+            event.preventDefault();
+            const feedbackMessage = $('<div class="alert alert-success mt-3">Thank you for your feedback!</div>');
+            $('.feedback').append(feedbackMessage);
+            $('#userFeedback').val(''); // Clear the textarea
+        });
+</script>
+
 
 </body>
 </html>
