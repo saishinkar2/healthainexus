@@ -13,27 +13,31 @@ exports.handler = async (event, context) => {
     // Create a Nodemailer transporter using your email service (e.g., Gmail, SMTP)
 
     let transporter = nodemailer.createTransport({
-        service: 'smpt.gmail.com',
+        host: 'smpt.gmail.com',
+        port: 465 ,
+        secure: true,
         auth: {
             user: process.env.EMAIL_USER, // Use environment variables for security
             pass: process.env.EMAIL_PASS,
         },
     });
 
-    const mailOptions = {
-        from: process.env.EMAIL_USER, // Sender address
-        to: 'sshinkar83@gmail.com', // List of recipients
-        subject: 'New Feedback Received',
-        text: `Feedback: ${feedback}`,
-    };
+    let mailOptions = {
+        from: '"HealthAINexus-Team" <sshinkar83@gmail.com>', 
+        to: "recipient-email@example.com",
+        subject: "A Addition To FeedBack",
+        text: "Hello , This is Team Nexus, Here is some suggestion on addition on tips",
+        html: "<b>Hello World!</b>"
+      };
+      
 
     try {
-        // Send the email
-        await transporter.sendMail(mailOptions);
-        return {
-            statusCode: 200,
-            body: JSON.stringify({ success: true, message: 'Email sent successfully' }),
-        };
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+              return console.log(error);
+            }
+            console.log("Message sent: %s", info.messageId);
+          });
     } catch (error) {
         return {
             statusCode: 500,
