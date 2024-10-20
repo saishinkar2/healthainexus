@@ -11,8 +11,9 @@ exports.handler = async (event, context) => {
     const { feedback } = JSON.parse(event.body);
 
     // Create a Nodemailer transporter using your email service (e.g., Gmail, SMTP)
+
     let transporter = nodemailer.createTransport({
-        service: 'gmail',
+        service: 'smpt.gmail.com',
         auth: {
             user: process.env.EMAIL_USER, // Use environment variables for security
             pass: process.env.EMAIL_PASS,
