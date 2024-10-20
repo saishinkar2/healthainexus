@@ -12,5 +12,6 @@ Health Monitoring ==> by Sai Shinkar and Saksham Pandey - A wellness-focused hea
 
 - **Health Tips:** Discover valuable wellness advice covering nutrition, exercise, stress management, and more.
 
+-**Sound Decibal Checker:** Protect Your Ears and Your Surroundings Using this.. Sound Safee..
 
-### THIS IS SOLELY FOR MY PERSONAL  AND  NO COMMERCIAL USE IS AUTORIZED BY ME OR MY COLLABORATORS.
+### THIS IS SOLELY FOR MY PERSONAL AND NO COMMERCIAL USE IS AUTORIZED BY ME OR MY COLLABORATORS.

@@ -50,7 +50,14 @@ $(function () {
 
         $(".hm-disease, .hm-services").addClass("active bulu");
         break;
-      
+        
+        
+        case "decibal":
+        $(".nav-link").removeClass("active");
+        $(".dropdown-item").removeClass("active");
+
+        $(".hm-decibal, .hm-services").addClass("active bulu");
+        break;
     }
     
 
