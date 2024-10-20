@@ -15,6 +15,8 @@
     rel="stylesheet"
   />
   
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -103,7 +105,28 @@
             </form>
         </section>
     </div>
-
+    <script>
+        $('#feedbackForm').submit(function (event) {
+             event.preventDefault();
+             var feedback = $('#userFeedback').val();
+             
+             $.ajax({
+                 type: 'POST',
+                 url: '/.netlify/functions/sendFeedback',  // The Netlify function endpoint
+                 data: JSON.stringify({ feedback: feedback }),
+                 contentType: 'application/json',
+                 success: function(response) {
+                     const feedbackMessage = $('<div class="alert alert-success mt-3">Thank you for your feedback! Your message has been sent.</div>');
+                     $('.feedback').append(feedbackMessage);
+                     $('#userFeedback').val(''); // Clear the textarea
+                 },
+                 error: function() {
+                     const errorMessage = $('<div class="alert alert-danger mt-3">There was an error sending your feedback.</div>');
+                     $('.feedback').append(errorMessage);
+                 }
+             });
+         });
+     </script>
     </main>
     <div id="hm-footer"></div>
     <!-- Bootstrap JavaScript (optional) -->
