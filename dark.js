@@ -63,7 +63,6 @@ $(function () {
 
   });
   $("#hm-footer").load("footer.html");
-
 document.getElementById("darkSwitch").addEventListener("click", () => {
   setTimeout(() => {
     DarkModeToggle()
@@ -74,52 +73,113 @@ document.getElementById("darkSwitch").addEventListener("click", () => {
 
 function DarkModeToggle() {
   const darkSwitch = localStorage.getItem("darkSwitch");
-  const navLinks = document.querySelectorAll(".nav-link");
-  const img = document.querySelectorAll(".img-fluid")
-  const links = document.querySelectorAll(".github-profile")
+  const elementsToToggle = {
+    navLinks: document.querySelectorAll(".nav-link"),
+    chatContainer: document.querySelectorAll("#user-input"),
+    messages: document.querySelectorAll("div#messages"),
+    forms: document.querySelectorAll("div#chat-form"),
+    img: document.querySelectorAll(".img-fluid"),
+    links: document.querySelectorAll(".github-profile"),
+    table: document.getElementById("table"),
+    drpdwn: document.getElementById("drpdwn"),
+    allLinks: document.querySelectorAll("a"),
+    textContainer: document.querySelectorAll(".text-container")
+  };
 
-  if (darkSwitch === null) {
-    img.forEach(el => {
-      el.setAttribute("src", "github-mark.svg")
-  })
-  links.forEach(element => {
-    element.classList.remove("text-white")
-  })
-    navLinks.forEach(element => {
-      try {
-
-        document.getElementById("table").classList.remove("table-dark")
-      } catch (error) {
-        
-      }
-      element.classList.remove("text-white");
-      document.getElementById("drpdwn").classList.remove("dropdown-menu-dark")
-    });
-    return false
-  } else if (darkSwitch === "dark"){
-    img.forEach(el => {
-        el.setAttribute("src", "github-mark-white.svg")
+// Function to apply dark mode classes
+  function applyDarkMode() {
+    elementsToToggle.textContainer.forEach(el => {
+      el.classList.add("bg-dark", "text-white")
     })
+    elementsToToggle.img.forEach(el => {
+      el.setAttribute("src", "github-mark-white.svg");
+    });
     
-    navLinks.forEach(element => {
-      try {
-        document.getElementById("table").classList.add("table-dark")
-      } catch (error) {
-        console.error(error)
-        console.log("above error may be caused cause there is no table in the page")
-      }
-      element.classList.add("text-white");
-      document.getElementById("drpdwn").classList.add("dropdown-menu-dark")
+    elementsToToggle.forms.forEach(el => {
+      el.classList.add("bg-dark", "text-white");
     });
+    
+    elementsToToggle.chatContainer.forEach(el => {
+      el.classList.add("bg-dark", "text-white", "dropdown-menu-dark", "dropdown-item-dark");
+    });
+    
+    elementsToToggle.messages.forEach(el => {
+      el.classList.add("bg-dark", "text-white", "dropdown-menu-dark", "dropdown-item-dark");
+    });
+    
+    if (elementsToToggle.table) {
+      elementsToToggle.table.classList.add("table-dark");
+    }
+    
+    if (elementsToToggle.drpdwn) {
+      elementsToToggle.drpdwn.classList.add("dropdown-menu-dark");
+    }
 
-    links.forEach(element => {
-      element.classList.add("text-white")
+    elementsToToggle.navLinks.forEach(el => {
+      el.classList.add("text-white");
+    });
+    
+    elementsToToggle.allLinks.forEach(el => {
+      el.classList.add("text-white");
+    });
+    
+    elementsToToggle.links.forEach(el => {
+      el.classList.add("text-white");
+    });
+    document.getElementById("lastUpdated").classList.add("text-white")
+    localStorage.setItem("darkSwitch", "dark");
+  }
+
+  // Function to remove dark mode classes
+  function removeDarkMode() {
+    elementsToToggle.textContainer.forEach(el => {
+      el.classList.remove("bg-dark", "text-white")
     })
-return true
+    elementsToToggle.img.forEach(el => {
+      el.setAttribute("src", "github-mark.svg");
+    });
+    
+    elementsToToggle.forms.forEach(el => {
+      el.classList.remove("bg-dark", "text-white");
+    });
+    
+    elementsToToggle.chatContainer.forEach(el => {
+      el.classList.remove("bg-dark", "text-white", "dropdown-menu-dark", "dropdown-item-dark");
+    });
+    
+    elementsToToggle.messages.forEach(el => {
+      el.classList.remove("bg-dark", "text-white", "dropdown-menu-dark", "dropdown-item-dark");
+    });
+    
+    if (elementsToToggle.table) {
+      elementsToToggle.table.classList.remove("table-dark");
+    }
+    
+    if (elementsToToggle.drpdwn) {
+      elementsToToggle.drpdwn.classList.remove("dropdown-menu-dark");
+    }
+
+    elementsToToggle.navLinks.forEach(el => {
+      el.classList.remove("text-white");
+    });
+    
+    elementsToToggle.allLinks.forEach(el => {
+      el.classList.remove("text-white");
+    });
+    
+    elementsToToggle.links.forEach(el => {
+      el.classList.remove("text-white");
+    });
+    document.getElementById("lastUpdated").classList.remove("text-white")
+    localStorage.setItem("darkSwitch", "light");
+
 
   }
 
-
-
+  // Toggle dark mode based on the current state
+  if (darkSwitch === "dark") {
+    applyDarkMode();
+  } else {
+    removeDarkMode();
+  }
 }
-
