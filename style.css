@@ -26,6 +26,7 @@ h1 {
 .intro {
     background-color: #E6E6FA;
     padding: 50px 0;
+    color: #111;
 }
 .intro h2 {
     font-weight: 700;

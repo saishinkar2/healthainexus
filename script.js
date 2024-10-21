@@ -38,22 +38,22 @@ document.getElementById('chat-form').addEventListener('submit', async (e) => {
 
         const result = await response.json();
         const botReply = result.candidates[0]?.content?.parts[0]?.text || "Sorry, I don't have a response.";
-        addMessage('Bot', botReply, true); // Pass true to trigger typewriter effect for bot replies
+        addMessage('Bot', botReply, true, submitButton); // Pass true to trigger typewriter effect for bot replies
 
     } catch (error) {
         console.error('Error making API request:', error.message);
         addMessage('Bot', `Error processing your request: ${error.message}`);
     } finally {
-        submitButton.disabled = false; // Re-enable the submit button once the request is complete
+         // Re-enable the submit button once the request is complete
     }
 });
 
 // Function to add messages to the chat
-function addMessage(sender, message, typewriter = false) {
+function addMessage(sender, message, typewriter = false, submitButton) {
     const messages = document.getElementById('messages');
     const div = document.createElement("div");
 
-    div.classList.add('p-2', 'mb-2', 'rounded', sender === 'User' ? 'bg-light' : 'chatmsg');
+    div.classList.add('p-2', 'mb-2', 'rounded',  'chatmsg');
 
     if (sender === 'User') {
         const converter = new showdown.Converter();
@@ -69,7 +69,7 @@ function addMessage(sender, message, typewriter = false) {
         messages.appendChild(div);
 
         // Call typing effect for this message
-        typing(`#${uniqueId}`, htmlMessage); 
+        typing(`#${uniqueId}`, htmlMessage,submitButton); 
     }
 
     messages.appendChild(div);
@@ -77,14 +77,14 @@ function addMessage(sender, message, typewriter = false) {
 }
 
 // Function to handle typing effect with Typed.js
-function typing(targetElement, htmlMessage) {
+function typing(targetElement, htmlMessage, submitButton) {
     new Typed(targetElement, {
         strings: [htmlMessage], // The message to type
         typeSpeed: 10, // Speed of typing
         showCursor: false, // Show the cursor while typing
         loop: false, // No looping
         onComplete: function() {
-            // Typing completed, but the text remains intact
+            submitButton.disabled = false
         }
     });
 }

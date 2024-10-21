@@ -81,16 +81,24 @@ function DarkModeToggle() {
     img: document.querySelectorAll(".img-fluid"),
     links: document.querySelectorAll(".github-profile"),
     table: document.getElementById("table"),
+    helplineTables: document.getElementsByClassName("table"),
     drpdwn: document.getElementById("drpdwn"),
     allLinks: document.querySelectorAll("a"),
-    textContainer: document.querySelectorAll(".text-container")
+    textContainer: document.querySelectorAll(".text-container"),
+    accordionItems: document.querySelectorAll(".accordion-item"),
+    accordionButton: document.querySelectorAll(".accordion-button"),
   };
 
-// Function to apply dark mode classes
+  // Function to apply dark mode classes
   function applyDarkMode() {
+    Array.from(document.getElementsByClassName("active")).forEach(element => {
+      element.classList.remove("text-white");
+    });
+    
     elementsToToggle.textContainer.forEach(el => {
-      el.classList.add("bg-dark", "text-white")
-    })
+      el.classList.add("bg-dark", "text-white");
+    });
+    
     elementsToToggle.img.forEach(el => {
       el.setAttribute("src", "github-mark-white.svg");
     });
@@ -106,35 +114,61 @@ function DarkModeToggle() {
     elementsToToggle.messages.forEach(el => {
       el.classList.add("bg-dark", "text-white", "dropdown-menu-dark", "dropdown-item-dark");
     });
-    
+
+    // Apply dark mode to the accordion items and buttons
+    elementsToToggle.accordionItems.forEach(el => {
+      el.classList.add("bg-dark", "text-white");
+    });
+    elementsToToggle.accordionButton.forEach(el => {
+      el.classList.add("bg-dark", "text-white");
+    });
+
+    // Apply dark mode to the main table
     if (elementsToToggle.table) {
       elementsToToggle.table.classList.add("table-dark");
     }
-    
+
+    // Apply dark mode to all helpline tables
+    Array.from(elementsToToggle.helplineTables).forEach(table => {
+      table.classList.add("table-dark");
+    });
+
     if (elementsToToggle.drpdwn) {
       elementsToToggle.drpdwn.classList.add("dropdown-menu-dark");
     }
 
     elementsToToggle.navLinks.forEach(el => {
-      el.classList.add("text-white");
+      if (!el.classList.contains("active")) {
+        el.classList.add("text-white");
+      }
     });
-    
+
     elementsToToggle.allLinks.forEach(el => {
-      el.classList.add("text-white");
+      if (!el.classList.contains("active") && !el.classList.contains("btn") && !el.classList.contains("bt")) {
+        el.classList.add("text-white");
+      }
     });
-    
+
     elementsToToggle.links.forEach(el => {
-      el.classList.add("text-white");
+      if (!el.classList.contains("active") && !el.classList.contains("btn") && !el.classList.contains("bt")) {
+        el.classList.add("text-white");
+      }
     });
-    document.getElementById("lastUpdated").classList.add("text-white")
+
+    document.getElementById("lastUpdated").classList.add("text-white");
     localStorage.setItem("darkSwitch", "dark");
   }
 
   // Function to remove dark mode classes
   function removeDarkMode() {
+    Array.from(document.getElementsByClassName("active")).forEach(element => {
+      element.classList.add("text-white");
+    });
+    
     elementsToToggle.textContainer.forEach(el => {
-      el.classList.remove("bg-dark", "text-white")
-    })
+      el.classList.remove("bg-dark", "text-white");
+    });
+    
     elementsToToggle.img.forEach(el => {
       el.setAttribute("src", "github-mark.svg");
     });
@@ -150,11 +184,25 @@ function DarkModeToggle() {
     elementsToToggle.messages.forEach(el => {
       el.classList.remove("bg-dark", "text-white", "dropdown-menu-dark", "dropdown-item-dark");
     });
-    
+
+    // Remove dark mode from the accordion items and buttons
+    elementsToToggle.accordionItems.forEach(el => {
+      el.classList.remove("bg-dark", "text-white");
+    });
+    elementsToToggle.accordionButton.forEach(el => {
+      el.classList.remove("bg-dark", "text-white");
+    });
+
+    // Remove dark mode from the main table
     if (elementsToToggle.table) {
       elementsToToggle.table.classList.remove("table-dark");
     }
-    
+
+    // Remove dark mode from all helpline tables
+    Array.from(elementsToToggle.helplineTables).forEach(table => {
+      table.classList.remove("table-dark");
+    });
+
     if (elementsToToggle.drpdwn) {
       elementsToToggle.drpdwn.classList.remove("dropdown-menu-dark");
     }
@@ -162,18 +210,17 @@ function DarkModeToggle() {
     elementsToToggle.navLinks.forEach(el => {
       el.classList.remove("text-white");
     });
-    
+
     elementsToToggle.allLinks.forEach(el => {
       el.classList.remove("text-white");
     });
-    
+
     elementsToToggle.links.forEach(el => {
       el.classList.remove("text-white");
     });
-    document.getElementById("lastUpdated").classList.remove("text-white")
+
+    document.getElementById("lastUpdated").classList.remove("text-white");
     localStorage.setItem("darkSwitch", "light");
-
-
   }
 
   // Toggle dark mode based on the current state
