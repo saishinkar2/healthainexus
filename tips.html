@@ -105,28 +105,7 @@
             </form>
         </section>
     </div>
-    <script>
-        $('#feedbackForm').submit(function (event) {
-             event.preventDefault();
-             var feedback = $('#userFeedback').val();
-             
-             $.ajax({
-                 type: 'POST',
-                 url: '/.netlify/functions/sendFeedback',  // The Netlify function endpoint
-                 data: JSON.stringify({ feedback: feedback }),
-                 contentType: 'application/json',
-                 success: function(response) {
-                     const feedbackMessage = $('<div class="alert alert-success mt-3">Thank you for your feedback! Your message has been sent.</div>');
-                     $('.feedback').append(feedbackMessage);
-                     $('#userFeedback').val(''); // Clear the textarea
-                 },
-                 error: function() {
-                     const errorMessage = $('<div class="alert alert-danger mt-3">There was an error sending your feedback.</div>');
-                     $('.feedback').append(errorMessage);
-                 }
-             });
-         });
-     </script>
+   
     </main>
     <div id="hm-footer"></div>
     <!-- Bootstrap JavaScript (optional) -->
