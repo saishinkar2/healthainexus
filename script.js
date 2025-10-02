@@ -1,6 +1,6 @@
 document.getElementById('chat-form').addEventListener('submit', async (e) => {
     e.preventDefault();
-    const apiKey = 'AIzaSyDOpOFfsBVxsHqGDQZGdO0efDlHcPgfmNA';
+    const apiKey = 'API_KEY';
     const input = document.getElementById('user-input');
     const submitButton = document.querySelector('button[type="submit"]');
     const message = input.value.trim();
